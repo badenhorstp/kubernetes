@@ -1,0 +1,52 @@
+allowVolumeExpansion: false
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  annotations:
+    meta.helm.sh/release-name: vsphere-csi
+    meta.helm.sh/release-namespace: kube-system
+    storageclass.beta.kubernetes.io/is-default-class: 'true'
+    storageclass.kubernetes.io/is-default-class: 'true'
+  creationTimestamp: '2022-06-08T13:16:50Z'
+  labels:
+    app.kubernetes.io/managed-by: Helm
+  managedFields:
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:allowVolumeExpansion: {}
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/managed-by: {}
+        f:parameters:
+          .: {}
+          f:datastoreURL: {}
+        f:provisioner: {}
+        f:reclaimPolicy: {}
+        f:volumeBindingMode: {}
+      manager: helm
+      operation: Update
+      time: '2022-06-08T13:16:50Z'
+    - apiVersion: storage.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:storageclass.beta.kubernetes.io/is-default-class: {}
+            f:storageclass.kubernetes.io/is-default-class: {}
+      manager: agent
+      operation: Update
+      time: '2022-06-15T12:09:29Z'
+  name: vsphere-csi-sc
+  resourceVersion: '13010997'
+  uid: d5b49e0a-e4d4-4aa2-978f-c62a8eb6ec3a
+parameters:
+  datastoreURL: ds:///vmfs/volumes/6241791b-073bad4c-a7ff-5cb901dd0a30/
+provisioner: csi.vsphere.vmware.com
+reclaimPolicy: Delete
+volumeBindingMode: Immediate

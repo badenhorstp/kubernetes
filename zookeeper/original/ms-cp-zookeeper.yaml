@@ -1,0 +1,337 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  annotations:
+    meta.helm.sh/release-name: ms-cp
+    meta.helm.sh/release-namespace: nam-kafka
+  creationTimestamp: '2023-03-22T12:02:48Z'
+  generation: 21
+  labels:
+    app.kubernetes.io/instance: ms-cp
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: zookeeper
+    app.kubernetes.io/version: 6.2.0
+    helm.sh/chart: zookeeper-6.2.0
+  managedFields:
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+        f:spec:
+          f:podManagementPolicy: {}
+          f:replicas: {}
+          f:revisionHistoryLimit: {}
+          f:selector: {}
+          f:serviceName: {}
+          f:template:
+            f:metadata:
+              f:labels:
+                .: {}
+                f:app.kubernetes.io/instance: {}
+                f:app.kubernetes.io/name: {}
+            f:spec:
+              f:affinity:
+                .: {}
+                f:podAntiAffinity:
+                  .: {}
+                  f:preferredDuringSchedulingIgnoredDuringExecution: {}
+              f:containers:
+                k:{"name":"zookeeper-server"}:
+                  .: {}
+                  f:command: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"KAFKA_HEAP_OPTS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KAFKA_JMX_PORT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"ZOOKEEPER_AUTOPURGE_PURGE_INTERVAL"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"ZOOKEEPER_AUTOPURGE_SNAP_RETAIN_COUNT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"ZOOKEEPER_CLIENT_PORT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"ZOOKEEPER_INIT_LIMIT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"ZOOKEEPER_MAX_CLIENT_CNXNS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"ZOOKEEPER_SERVER_ID"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef: {}
+                    k:{"name":"ZOOKEEPER_SERVERS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"ZOOKEEPER_SYNC_LIMIT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"ZOOKEEPER_TICK_TIME"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":2181,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                    k:{"containerPort":2888,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                    k:{"containerPort":3888,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                  f:resources: {}
+                  f:securityContext:
+                    .: {}
+                    f:allowPrivilegeEscalation: {}
+                    f:capabilities:
+                      .: {}
+                      f:drop: {}
+                    f:runAsGroup: {}
+                    f:runAsNonRoot: {}
+                    f:runAsUser: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/var/lib/zookeeper/data"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/var/lib/zookeeper/log"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:imagePullSecrets:
+                .: {}
+                k:{"name":"cgp-k8s-reg"}: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext:
+                .: {}
+                f:fsGroup: {}
+                f:fsGroupChangePolicy: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+          f:updateStrategy:
+            f:type: {}
+          f:volumeClaimTemplates: {}
+      manager: helm
+      operation: Update
+      time: '2023-12-07T14:22:10Z'
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:availableReplicas: {}
+          f:collisionCount: {}
+          f:currentReplicas: {}
+          f:currentRevision: {}
+          f:observedGeneration: {}
+          f:readyReplicas: {}
+          f:replicas: {}
+          f:updateRevision: {}
+          f:updatedReplicas: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: '2023-12-07T14:22:21Z'
+  name: ms-cp-zookeeper
+  namespace: nam-kafka
+  resourceVersion: '292039349'
+  uid: 54c3f5ee-fa07-46af-bdc1-fafbf02fd460
+spec:
+  podManagementPolicy: OrderedReady
+  replicas: 3
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: ms-cp
+      app.kubernetes.io/name: zookeeper
+  serviceName: ms-cp-zookeeper-headless
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/instance: ms-cp
+        app.kubernetes.io/name: zookeeper
+    spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                    - key: app
+                      operator: In
+                      values:
+                        - zookeeper
+                    - key: release
+                      operator: In
+                      values:
+                        - ms-cp
+                topologyKey: kubernetes.io/hostname
+              weight: 1
+      containers:
+        - command:
+            - bash
+            - '-c'
+            - >
+              ZK_FIX_HOST_REGEX="s/${HOSTNAME}\.[^:]*:/0.0.0.0:/g"
+
+              ZOOKEEPER_SERVER_ID=$((${HOSTNAME##*-}+1)) \
+
+              ZOOKEEPER_SERVERS=`echo $ZOOKEEPER_SERVERS | sed -e
+              "$ZK_FIX_HOST_REGEX"` \
+
+              /etc/confluent/docker/run
+          env:
+            - name: KAFKA_HEAP_OPTS
+              value: '-Xms512M -Xmx512M'
+            - name: KAFKA_JMX_PORT
+              value: '5555'
+            - name: ZOOKEEPER_TICK_TIME
+              value: '2000'
+            - name: ZOOKEEPER_SYNC_LIMIT
+              value: '5'
+            - name: ZOOKEEPER_INIT_LIMIT
+              value: '10'
+            - name: ZOOKEEPER_MAX_CLIENT_CNXNS
+              value: '60'
+            - name: ZOOKEEPER_AUTOPURGE_SNAP_RETAIN_COUNT
+              value: '3'
+            - name: ZOOKEEPER_AUTOPURGE_PURGE_INTERVAL
+              value: '24'
+            - name: ZOOKEEPER_CLIENT_PORT
+              value: '2181'
+            - name: ZOOKEEPER_SERVERS
+              value: >-
+                ms-cp-zookeeper-0.ms-cp-zookeeper-headless.nam-kafka:2888:3888;ms-cp-zookeeper-1.ms-cp-zookeeper-headless.nam-kafka:2888:3888;ms-cp-zookeeper-2.ms-cp-zookeeper-headless.nam-kafka:2888:3888
+            - name: ZOOKEEPER_SERVER_ID
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.name
+          image: cgpk8sreg.azurecr.io/cp-zookeeper:6.2.0
+          imagePullPolicy: IfNotPresent
+          name: zookeeper-server
+          ports:
+            - containerPort: 2181
+              name: client
+              protocol: TCP
+            - containerPort: 2888
+              name: server
+              protocol: TCP
+            - containerPort: 3888
+              name: leader-election
+              protocol: TCP
+          resources: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+            runAsGroup: 1000
+            runAsNonRoot: true
+            runAsUser: 1000
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+            - mountPath: /var/lib/zookeeper/data
+              name: datadir
+            - mountPath: /var/lib/zookeeper/log
+              name: datalogdir
+      dnsPolicy: ClusterFirst
+      imagePullSecrets:
+        - name: cgp-k8s-reg
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext:
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
+      serviceAccount: ms-cp-zookeeper-serviceaccount
+      serviceAccountName: ms-cp-zookeeper-serviceaccount
+      terminationGracePeriodSeconds: 30
+  updateStrategy:
+    type: RollingUpdate
+  volumeClaimTemplates:
+    - apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
+        creationTimestamp: null
+        name: datadir
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 5Gi
+        storageClassName: vsphere-csi-sc
+        volumeMode: Filesystem
+      status:
+        phase: Pending
+    - apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
+        creationTimestamp: null
+        name: datalogdir
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 5Gi
+        storageClassName: vsphere-csi-sc
+        volumeMode: Filesystem
+      status:
+        phase: Pending
+status:
+  availableReplicas: 3
+  collisionCount: 0
+  currentReplicas: 3
+  currentRevision: ms-cp-zookeeper-858bc9bfdf
+  observedGeneration: 21
+  readyReplicas: 3
+  replicas: 3
+  updateRevision: ms-cp-zookeeper-858bc9bfdf
+  updatedReplicas: 3
