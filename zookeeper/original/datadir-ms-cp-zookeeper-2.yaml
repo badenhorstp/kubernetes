@@ -1,0 +1,76 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    pv.kubernetes.io/provisioned-by: csi.vsphere.vmware.com
+  creationTimestamp: '2022-09-29T14:13:41Z'
+  finalizers:
+    - kubernetes.io/pv-protection
+    - external-attacher/csi-vsphere-vmware-com
+  managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:phase: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: '2022-09-29T14:13:41Z'
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:pv.kubernetes.io/provisioned-by: {}
+          f:finalizers:
+            v:"external-attacher/csi-vsphere-vmware-com": {}
+        f:spec:
+          f:accessModes: {}
+          f:capacity:
+            .: {}
+            f:storage: {}
+          f:claimRef: {}
+          f:csi:
+            .: {}
+            f:driver: {}
+            f:fsType: {}
+            f:volumeAttributes:
+              .: {}
+              f:storage.kubernetes.io/csiProvisionerIdentity: {}
+              f:type: {}
+            f:volumeHandle: {}
+          f:persistentVolumeReclaimPolicy: {}
+          f:storageClassName: {}
+          f:volumeMode: {}
+      manager: Go-http-client
+      operation: Update
+      time: '2022-09-29T14:13:42Z'
+  name: pvc-0f378cba-1fcb-4ff5-aac1-623f401adb8a
+  resourceVersion: '61705840'
+  uid: 05d4442e-714d-4dc5-ac68-0d140a1302eb
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 5Gi
+  claimRef:
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    name: datadir-ms-cp-zookeeper-2
+    namespace: nam-kafka
+    resourceVersion: '61705801'
+    uid: 0f378cba-1fcb-4ff5-aac1-623f401adb8a
+  csi:
+    driver: csi.vsphere.vmware.com
+    fsType: ext4
+    volumeAttributes:
+      storage.kubernetes.io/csiProvisionerIdentity: 1663683358191-8081-csi.vsphere.vmware.com
+      type: vSphere CNS Block Volume
+    volumeHandle: 5c252b60-3761-40e2-9011-4d73626ef6ce
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: vsphere-csi-sc
+  volumeMode: Filesystem
+status:
+  phase: Bound
